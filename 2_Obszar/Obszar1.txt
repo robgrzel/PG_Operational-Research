@@ -1,0 +1,15 @@
+Programowanie Liniowe:
+	- kolokwium bez teorii
+	- MEtody programowania liniowego Judin, Golsztein
+		
+	pierwotnie programowanie liniowe s³uzy³o do planowania lotów
+	
+	
+	
+teoria 2:
+	- drogi ³acz¹ce dowolne dwa punkty w zbiorze s¹ w zbiorze - zbiór wypuk³y
+	
+teoria 4
+	-	optimum jest w wierzcho³ku
+
+	

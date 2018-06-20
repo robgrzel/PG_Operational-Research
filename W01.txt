@@ -1,0 +1,45 @@
+Zasób wzrotny - zostaje po użyciu zwrócony do puli i może być powonie użyty
+
+Misja - złośliwie teoria kolejek
+	Strumień zgłoszeń
+	charakterystyka strumienia zgłoszeń -> Jakie będą włąściwości procesu kolejkowego?? co tam się będzie działo
+	
+	
+	
+Skutki kolejek:
+	- oóźnienia
+	- ograniczona pojemność - możliwość przepełnienia i brak dosteępu 
+	- koszty prowadzenia kolejek
+	
+	
+	
+s.10
+v - jednosta wydajności cpu j.o./s
+b - wymaganie obsługi
+
+d - opóźnienie systemowe, róznicz pomiędzy przybyciem, a opuszczeniem systemu - czas bytu zgłoszenia w systemie
+w - czes buforowania, tj d bez czasu obsługi - czas tracony, bezproduktywny
+N - długosc kolejki wraz Z OBŁUGIWANYM TERAZ zgłoszeniem; liczba zgłoszeń w systemie
+
+
+rozpatrując czas buforowania jest intotne, czy amy FIFO , czy co... jest to stan kolejki, jaki zostało zgłoszenie, gdy przybyło do kolejki
+
+===================================
+
+albo opóźnienia niewielkie, albo procesor dobrze wykorzystany....?
+to wzajemnie sprzeczne...
+
+jak dobrze wykorzystany.. to rośnie nam kolejka, więc nie fajnie... to daje złe zadanie
+
+obciażenie systemu:
+	- współczynik obciażenia systemu
+	
+	
+Proc w trybie zachowawczym -> nie niszczy popytu ani go nie kreuje
+	- coś przerywa, obsługuje, ale nie wracam do wcześniejszego - niszczenie popytu
+	- jest kilka zgłoszeń, ale proc odmawia obsługi - martwy czas
+	
+	
+przeplot - trichę tego, potem trochę tamtego, potem wróce do dokończenia pierwszego itd
+
+ile procesorów?

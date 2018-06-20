@@ -1,0 +1,12 @@
+wget \
+     --recursive \
+     --timestamping \
+     --page-requisites \
+     --html-extension \
+     --convert-links \
+     --domains xvideos.com \
+     --no-parent \
+	 --span-hosts \
+	 --restrict-file-names=windows \
+     -U 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20070802 SeaMonkey/1.1.4' \
+        http://kaims.eti.pg.gda.pl/~giaro/bo/bo.htm
