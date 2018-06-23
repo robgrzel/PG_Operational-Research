@@ -1,0 +1,653 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width initial-scale=1">
+<title>2018-06-17-PG_OR_Konorski_Exer.md</title>
+<style type="text/css">
+.content {
+  padding: 86.45px 84px
+}
+</style>
+<style type="text/css">
+.content {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 700px; /* 700px is the width of the post in Medium */
+}
+
+/* hide TOC(table of contents). it's height is calculated from the original container */
+.content--buffer .table-of-contents {
+  height: 0;
+}
+
+.content > :first-child,
+.content > :first-child > * /* nested blocks */ {
+  margin-top: 0;
+}
+
+.content > :last-child,
+.content > :last-child > * /* nested blocks */ {
+  margin-bottom: 0;
+}
+
+.mermaid {
+  margin-bottom:  1.9rem;
+}
+
+.page-break {
+  page-break-before: always;
+}
+
+@media print {
+  /* fix | code blocks in PDF export are trimmed */
+  .content pre {
+    white-space: pre-wrap;
+  }
+}
+</style>
+<style type="text/css">
+
+
+
+/*
+ * Read-only
+ *
+ * To add a theme:
+ *   1. Add a .css file to the same folder.
+ *   2. Restart the app. */
+
+::selection {
+  background: hsl(210, 40%, 90%);
+}
+
+:root {
+  --line-height: 1.9rem;
+
+  background: #fff;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height:  1.9rem;
+}
+
+.content {
+  max-width: 626px;
+}
+
+/* Quotes
+   ---------------- */
+
+blockquote {
+  border-left: .2rem solid #ddd;
+  color: #999;
+  margin-left: 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+/* Headings
+   ---------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto";
+  font-weight: normal;
+  line-height: normal;
+  margin-bottom:  1.9rem;
+  margin-top: calc(1.5 *  1.9rem);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.4rem;
+}
+
+/* Paragraphs */
+
+p {
+  margin-bottom:  1.9rem;
+}
+
+/* Inlines
+   ---------------- */
+
+a[href] {
+  color: #79b;
+  text-decoration: none;
+}
+
+a[href] img {
+  /* hide link underline */
+  box-shadow: 0 10px 0 #fff;
+}
+
+kbd {
+  border: 2px solid #ddd;
+  border-bottom: 3px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1rem;
+  margin: 0 .2rem;
+  padding: .2rem .6rem;
+}
+
+strong {
+  font-weight: 500;
+}
+
+/* Media
+   ---------------- */
+
+img {
+  max-width: 100%;
+}
+
+/* Rules
+   ---------------- */
+
+hr {
+  border: none;
+  border-top: .2rem solid #ddd;
+  box-sizing: border-box;
+  height: 0;
+  padding: 0;
+  margin-bottom:  1.9rem;
+}
+
+/* Tables
+   ---------------- */
+
+table {
+  border-collapse: collapse;
+  border-top: .3rem solid #ddd;
+  margin-bottom:  1.9rem;
+  width: 100%;
+}
+
+table td,
+table th {
+  padding: calc( 1.9rem / 4) .6rem;
+}
+
+table td:first-child,
+table th:first-child {
+  padding-left: 0;
+}
+
+table td:last-child,
+table th:last-child {
+  padding-right: 0;
+}
+
+table th {
+  font-weight: normal;
+  text-align: left;
+}
+
+table tbody tr:first-child {
+  border-top: .2rem solid #ddd;
+}
+
+table tbody tr:last-child {
+  border-bottom: .3rem solid #ddd;
+}
+
+/* Unordered Lists
+   ---------------- */
+
+ul {
+  list-style: disc;
+  padding-left: 2.4rem;
+  margin-bottom:  1.9rem;
+}
+
+/* Ordered Lists
+   ---------------- */
+
+ol {
+  padding-left: 2.4rem;
+  margin-bottom:  1.9rem;
+}
+
+ol ul,
+ol ol,
+ul ol,
+ul ul {
+  margin-bottom: 0;
+  padding-left: 2.4rem;
+}
+
+ol ol,
+ul ol {
+  list-style-type: lower-roman;
+}
+
+/* Tasks
+   ---------------- */
+
+.task-list-item {
+  list-style-type: none;
+}
+
+.task-list-item input {
+  font-size: 1rem;
+  margin: 0 0 0 -1.6rem;
+  vertical-align: middle;
+  width: 1.3rem;
+}
+
+.task-list-item p {
+  margin-bottom: calc(.5 *  1.9rem);
+}
+
+/* Math
+   ---------------- */
+
+.katex-display {
+  padding: 0.6em 0;
+  font-size: 1.2em;
+  overflow-x: auto;
+  border-radius: 4px;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.katex--error {
+  color: #777;
+}
+
+/* Code Blocks
+   ---------------- */
+
+code {
+  background: #f3f3f3;
+  border-radius: 2px;
+  color: #444;
+  font-family: 'Fira Mono', monospace;
+  font-size: .85em;
+  margin: 0 .2em;
+  padding: .1em .5em;
+}
+
+.content > pre {
+  background: #f3f3f3;
+  font-family: 'Fira Mono', monospace;
+  margin-bottom:  1.9rem;
+  padding: calc(.5 *  1.9rem) 1.2rem;
+  tab-size: 4;
+  overflow-x: auto;
+}
+
+.content > pre code {
+  background: none;
+  border: none;
+  color: #444;
+  margin: 0;
+  padding: 0;
+}
+
+/* Code
+   ---------------- */
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #aaa;
+}
+
+.token.operator,
+.token.punctuation {
+  color: #888;
+}
+
+.token.selector,
+.token.attr-name,
+.token.entity,
+.token.url {
+  color: #987;
+}
+
+.token.tag,
+.token.constant,
+.token.keyword {
+  color: #a7a;
+}
+
+.token.function,
+.token.attr-value {
+  color: #68a;
+}
+
+.token.number,
+.token.boolean,
+.token.regex,
+.token.string {
+  color: #6a8;
+}
+
+.token.variable,
+.token.property,
+.token.key {
+  color: #a66;
+}
+
+/* Print
+   ---------------- */
+
+@media print {
+  :root {
+    font-size: 14px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<h1 id="operations-research-queueing">Operations Research - Queueing</h1>
+<h2 id="konorski-equations">Konorski Equations</h2>
+<p><img src="2018-06-17-cheat-notes.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-3.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-4.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-5.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-6.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-7.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-8.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-9.png" alt=""></p>
+<div class="page-break"></div><h2 id="exercises">Exercises</h2>
+<h3 id="ex-11-old-ex-1">Ex 1.1, old Ex 1</h3>
+<h4 id="problem">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-342.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-268.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-246.png" alt=""></p>
+<div class="page-break"></div><h4 id="problem-short">Problem short</h4>
+<p><img src="2018-06-17-cheat-notes-289.png" alt=""></p>
+<h4 id="solution-v1">Solution v1</h4>
+<p><img src="2018-06-17-cheat-notes-290.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-291.png" alt="">
+<img src="2018-06-17-cheat-notes-292.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-293.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-294.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2">Solution v2</h4>
+<p><img src="2018-06-17-cheat-notes-295.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-323.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-324.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3">Solution v3</h4>
+<p><img src="2018-06-17-cheat-notes-380.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v4">Solution v4</h4>
+<p><img src="2018-06-17-cheat-notes-388.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v5">Solution v5</h4>
+<p><img src="2018-06-17-cheat-notes-406.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-12-old-ex-2">Ex 1.2, old Ex 2</h3>
+<h4 id="problem-2">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-343.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-269.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-247.png" alt=""></p>
+<div class="page-break"></div><h4 id="problem-short-2">Problem short</h4>
+<p><img src="2018-06-17-cheat-notes-296.png" alt=""></p>
+<h4 id="data">Data</h4>
+<p><img src="2018-06-17-cheat-notes-297.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-2">Solution v1</h4>
+<p><img src="2018-06-17-cheat-notes-298.png" alt="">
+<img src="2018-06-17-cheat-notes-304.png" alt="">
+<img src="2018-06-17-cheat-notes-303.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-305.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-306.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-2">Solution v2</h4>
+<p><img src="2018-06-17-cheat-notes-307.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-325.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-2">Solution v3</h4>
+<p><img src="2018-06-17-cheat-notes-381.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v4-2">Solution v4</h4>
+<p><img src="2018-06-17-cheat-notes-389.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v5-2">Solution v5</h4>
+<p><img src="2018-06-17-cheat-notes-407.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-13-old-ex-7">Ex 1.3, old Ex 7</h3>
+<h4 id="problem-3">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-344.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-270.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-254.png" alt=""></p>
+<div class="page-break"></div><h4 id="problem-short-3">Problem short</h4>
+<p><img src="2018-06-17-cheat-notes-308.png" alt=""></p>
+<h4 id="solution-v1-3">Solution v1</h4>
+<p><img src="2018-06-17-cheat-notes-309.png" alt=""></p>
+<h4 id="solution-v1-method-1">Solution v1 Method 1</h4>
+<p><img src="2018-06-17-cheat-notes-310.png" alt=""></p>
+<h4 id="solution-v1-method-2">Solution v1 Method 2</h4>
+<p><img src="2018-06-17-cheat-notes-311.png" alt=""></p>
+<h4 id="solution-v1-ans">Solution v1 Ans</h4>
+<p><img src="2018-06-17-cheat-notes-312.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-3">Solution v2</h4>
+<p><img src="2018-06-17-cheat-notes-326.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-3">Solution v3</h4>
+<p><img src="2018-06-17-cheat-notes-386.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v4-3">Solution v4</h4>
+<p><img src="2018-06-17-cheat-notes-412.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-21-old-ex">Ex 2.1, Old ex</h3>
+<h4 id="problem-4">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-345.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-272.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-265.png" alt=""></p>
+<div class="page-break"></div><h4 id="problem-short-4">Problem short</h4>
+<p><img src="2018-06-17-cheat-notes-313.png" alt=""></p>
+<h4 id="hints">Hints</h4>
+<p><img src="2018-06-17-cheat-notes-314.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-4">Solution v1</h4>
+<p><img src="2018-06-17-cheat-notes-315.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-4">Solution v2</h4>
+<p><img src="2018-06-17-cheat-notes-382.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-4">Solution v3</h4>
+<p><img src="2018-06-17-cheat-notes-390.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-copy">Solution v3 - copy</h4>
+<p><img src="2018-06-17-cheat-notes-391.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-22-old-ex-3">Ex 2.2, Old ex 3</h3>
+<h4 id="problem-5">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-346.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-271.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-266.png" alt="">
+<img src="2018-06-17-cheat-notes-267.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-248.png" alt=""></p>
+<div class="page-break"></div><h4 id="problem-short-5">Problem short</h4>
+<p><img src="2018-06-17-cheat-notes-316.png" alt=""></p>
+<h4 id="hints-2">Hints</h4>
+<p><img src="2018-06-17-cheat-notes-317.png" alt=""></p>
+<h4 id="equations">Equations</h4>
+<p><img src="2018-06-17-cheat-notes-318.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-5">Solution v1</h4>
+<p><img src="2018-06-17-cheat-notes-319.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-320.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-5">Solution v2</h4>
+<p><img src="2018-06-17-cheat-notes-321.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-5">Solution v3</h4>
+<p><img src="2018-06-17-cheat-notes-363.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v4-4">Solution v4</h4>
+<p><img src="2018-06-17-cheat-notes-408.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-23-old-ex-10">Ex 2.3, Old ex 10</h3>
+<h4 id="problem-6">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-348.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-273.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-274.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-258.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-259.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-6">Solution v1</h4>
+<p><img src="2018-06-17-cheat-notes-327.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-6">Solution v2</h4>
+<p><img src="2018-06-17-cheat-notes-364.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-31-old-ex-4">Ex 3.1, Old ex 4</h3>
+<h4 id="problem-7">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-349.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-275.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-249.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-7">Solution v1</h4>
+<p><img src="2018-06-17-cheat-notes-328.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-7">Solution v2</h4>
+<p><img src="2018-06-17-cheat-notes-365.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-6">Solution v3</h4>
+<p><img src="2018-06-17-cheat-notes-383.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v4-5">Solution v4</h4>
+<p><img src="2018-06-17-cheat-notes-409.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-32-old-ex-5">Ex 3.2, Old ex 5</h3>
+<h4 id="problem-8">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-350.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-250.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-276.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-8">Solution v1</h4>
+<p><img src="2018-06-17-cheat-notes-329.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-8">Solution v2</h4>
+<p><img src="2018-06-17-cheat-notes-385.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-7">Solution v3</h4>
+<p><img src="2018-06-17-cheat-notes-384.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v4-6">Solution v4</h4>
+<p><img src="2018-06-17-cheat-notes-392.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-33-old-ex">Ex 3.3, Old ex</h3>
+<h4 id="problem-9">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-351.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-352.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-277.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-278.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-9">Solution v1</h4>
+<p><img src="2018-06-17-cheat-notes-331.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-3extra-old-ex-9">Ex 3.Extra, Old ex 9</h3>
+<h4 id="problem-10">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-257.png" alt=""></p>
+<h4 id="solution">Solution</h4>
+<div class="page-break"></div><h3 id="ex-41-old-ex-6">Ex 4.1,  Old ex 6</h3>
+<h4 id="problem-11">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-353.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-354.png" alt=""></p>
+<h4 id="hint">Hint</h4>
+<p><img src="2018-06-17-cheat-notes-356.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-279.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-252.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-253.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-10">Solution v1</h4>
+<p><img src="2018-06-17-cheat-notes-332.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-9">Solution v2</h4>
+<p><img src="2018-06-17-cheat-notes-367.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-8">Solution v3</h4>
+<p><img src="2018-06-17-cheat-notes-387.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v4-7">Solution v4</h4>
+<p><img src="2018-06-17-cheat-notes-393.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v5-3">Solution v5</h4>
+<p><img src="2018-06-17-cheat-notes-394.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-42-old-ex-8">Ex 4.2, Old ex 8</h3>
+<h4 id="problem-12">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-357.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-355.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-280.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-255.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-256.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-a-b">Solution v1: A), B)</h4>
+<p><img src="2018-06-17-cheat-notes-333.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-a-b">Solution v2: A), B)</h4>
+<p><img src="2018-06-17-cheat-notes-368.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-9">Solution v3</h4>
+<h5 id="a">A)</h5>
+<p><img src="2018-06-17-cheat-notes-396.png" alt=""></p>
+<h5 id="b">B)</h5>
+<p><img src="2018-06-17-cheat-notes-404.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-51-old-ex">Ex 5.1, Old ex</h3>
+<h4 id="problem-13">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-358.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-281.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-11">Solution v1</h4>
+<h5 id="a-b">A), B)</h5>
+<p><img src="2018-06-17-cheat-notes-334.png" alt=""></p>
+<h5 id="c">C)</h5>
+<p><img src="2018-06-17-cheat-notes-335.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-b">Solution v2: B)</h4>
+<p><img src="2018-06-17-cheat-notes-370.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-10">Solution v3</h4>
+<p><img src="2018-06-17-cheat-notes-375.png" alt=""></p>
+<div class="page-break"></div><h5 id="a-b-2">A), B)</h5>
+<p><img src="2018-06-17-cheat-notes-374.png" alt=""></p>
+<div class="page-break"></div><h5 id="c-2">C)</h5>
+<p><img src="2018-06-17-cheat-notes-376.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v4-8">Solution v4</h4>
+<p><img src="2018-06-17-cheat-notes-405.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v5-a-b">Solution v5: A), B)</h4>
+<p><img src="2018-06-17-cheat-notes-397.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v5-a-b-2">Solution v5: A), B)</h4>
+<p><img src="2018-06-17-cheat-notes-411.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-52-old-ex">Ex 5.2, Old ex</h3>
+<h4 id="problem-14">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-359.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-360.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-282.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-284.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-285.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-286.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-12">Solution v1</h4>
+<p><img src="2018-06-17-cheat-notes-336.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-10">Solution v2</h4>
+<p><img src="2018-06-17-cheat-notes-371.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-11">Solution v3</h4>
+<p><img src="2018-06-17-cheat-notes-398.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-53-old">Ex 5.3, Old</h3>
+<h4 id="problem-15">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-361.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-339.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-338.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-13">Solution v1</h4>
+<h5 id="a-b-c-d">A), B), C), D)</h5>
+<p><img src="2018-06-17-cheat-notes-337.png" alt=""></p>
+<div class="page-break"></div><h5 id="e-f">E), F)</h5>
+<p><img src="2018-06-17-cheat-notes-341.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v2-11">Solution v2</h4>
+<div class="page-break"></div><h5 id="a-b-c">A), B), C)</h5>
+<p><img src="2018-06-17-cheat-notes-372.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v3-12">Solution v3</h4>
+<h5 id="a-2">A)</h5>
+<p><img src="2018-06-17-cheat-notes-399.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v4-9">Solution v4</h4>
+<h5 id="a-b-3">A), B)</h5>
+<p><img src="2018-06-17-cheat-notes-400.png" alt=""></p>
+<div class="page-break"></div><h5 id="c-d-e">C), D), E)</h5>
+<p><img src="2018-06-17-cheat-notes-401.png" alt=""></p>
+<div class="page-break"></div><h5 id="f">F)</h5>
+<p><img src="2018-06-17-cheat-notes-402.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v5-4">Solution v5</h4>
+<p><img src="2018-06-17-cheat-notes-403.png" alt=""></p>
+<div class="page-break"></div><h3 id="ex-54-old">Ex 5.4, Old</h3>
+<h4 id="problem-16">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-362.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-340.png" alt=""></p>
+<div class="page-break"></div><h4 id="solution-v1-14">Solution v1</h4>
+<div class="page-break"></div><h3 id="old-ex-11-miniprojects">Old ex 11 (miniprojects)</h3>
+<h4 id="problem-17">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-260.png" alt=""></p>
+<h4 id="solution-v1-15">Solution v1</h4>
+<div class="page-break"></div><h3 id="old-ex-12-miniprojects">Old ex 12 (miniprojects)</h3>
+<h4 id="problem-18">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-261.png" alt="">
+<img src="2018-06-17-cheat-notes-262.png" alt=""></p>
+<h4 id="solution-v1-16">Solution v1</h4>
+<div class="page-break"></div><h3 id="old-ex-13-miniprojects">Old ex 13 (miniprojects)</h3>
+<h4 id="problem-19">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-263.png" alt=""></p>
+<h4 id="solution-v1-17">Solution v1</h4>
+<div class="page-break"></div><h3 id="old-ex-14-miniprojects">Old ex 14 (miniprojects)</h3>
+<h4 id="problem-20">Problem</h4>
+<p><img src="2018-06-17-cheat-notes-264.png" alt=""></p>
+<h4 id="solution-v1-18">Solution v1</h4>
+
+</body>
+</html>

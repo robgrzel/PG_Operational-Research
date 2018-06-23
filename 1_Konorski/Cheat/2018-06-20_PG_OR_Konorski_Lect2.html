@@ -1,0 +1,480 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width initial-scale=1">
+<title>2018-06-20_PG_OR_Konorski_Lect2.md</title>
+<style type="text/css">
+.content {
+  padding: 86.45px 84px
+}
+</style>
+<style type="text/css">
+.content {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 700px; /* 700px is the width of the post in Medium */
+}
+
+/* hide TOC(table of contents). it's height is calculated from the original container */
+.content--buffer .table-of-contents {
+  height: 0;
+}
+
+.content > :first-child,
+.content > :first-child > * /* nested blocks */ {
+  margin-top: 0;
+}
+
+.content > :last-child,
+.content > :last-child > * /* nested blocks */ {
+  margin-bottom: 0;
+}
+
+.mermaid {
+  margin-bottom:  1.9rem;
+}
+
+.page-break {
+  page-break-before: always;
+}
+
+@media print {
+  /* fix | code blocks in PDF export are trimmed */
+  .content pre {
+    white-space: pre-wrap;
+  }
+}
+</style>
+<style type="text/css">
+
+
+
+/*
+ * Read-only
+ *
+ * To add a theme:
+ *   1. Add a .css file to the same folder.
+ *   2. Restart the app. */
+
+::selection {
+  background: hsl(210, 40%, 90%);
+}
+
+:root {
+  --line-height: 1.9rem;
+
+  background: #fff;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height:  1.9rem;
+}
+
+.content {
+  max-width: 626px;
+}
+
+/* Quotes
+   ---------------- */
+
+blockquote {
+  border-left: .2rem solid #ddd;
+  color: #999;
+  margin-left: 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+/* Headings
+   ---------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto";
+  font-weight: normal;
+  line-height: normal;
+  margin-bottom:  1.9rem;
+  margin-top: calc(1.5 *  1.9rem);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.4rem;
+}
+
+/* Paragraphs */
+
+p {
+  margin-bottom:  1.9rem;
+}
+
+/* Inlines
+   ---------------- */
+
+a[href] {
+  color: #79b;
+  text-decoration: none;
+}
+
+a[href] img {
+  /* hide link underline */
+  box-shadow: 0 10px 0 #fff;
+}
+
+kbd {
+  border: 2px solid #ddd;
+  border-bottom: 3px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Fira Mono', monospace;
+  font-size: 1rem;
+  margin: 0 .2rem;
+  padding: .2rem .6rem;
+}
+
+strong {
+  font-weight: 500;
+}
+
+/* Media
+   ---------------- */
+
+img {
+  max-width: 100%;
+}
+
+/* Rules
+   ---------------- */
+
+hr {
+  border: none;
+  border-top: .2rem solid #ddd;
+  box-sizing: border-box;
+  height: 0;
+  padding: 0;
+  margin-bottom:  1.9rem;
+}
+
+/* Tables
+   ---------------- */
+
+table {
+  border-collapse: collapse;
+  border-top: .3rem solid #ddd;
+  margin-bottom:  1.9rem;
+  width: 100%;
+}
+
+table td,
+table th {
+  padding: calc( 1.9rem / 4) .6rem;
+}
+
+table td:first-child,
+table th:first-child {
+  padding-left: 0;
+}
+
+table td:last-child,
+table th:last-child {
+  padding-right: 0;
+}
+
+table th {
+  font-weight: normal;
+  text-align: left;
+}
+
+table tbody tr:first-child {
+  border-top: .2rem solid #ddd;
+}
+
+table tbody tr:last-child {
+  border-bottom: .3rem solid #ddd;
+}
+
+/* Unordered Lists
+   ---------------- */
+
+ul {
+  list-style: disc;
+  padding-left: 2.4rem;
+  margin-bottom:  1.9rem;
+}
+
+/* Ordered Lists
+   ---------------- */
+
+ol {
+  padding-left: 2.4rem;
+  margin-bottom:  1.9rem;
+}
+
+ol ul,
+ol ol,
+ul ol,
+ul ul {
+  margin-bottom: 0;
+  padding-left: 2.4rem;
+}
+
+ol ol,
+ul ol {
+  list-style-type: lower-roman;
+}
+
+/* Tasks
+   ---------------- */
+
+.task-list-item {
+  list-style-type: none;
+}
+
+.task-list-item input {
+  font-size: 1rem;
+  margin: 0 0 0 -1.6rem;
+  vertical-align: middle;
+  width: 1.3rem;
+}
+
+.task-list-item p {
+  margin-bottom: calc(.5 *  1.9rem);
+}
+
+/* Math
+   ---------------- */
+
+.katex-display {
+  padding: 0.6em 0;
+  font-size: 1.2em;
+  overflow-x: auto;
+  border-radius: 4px;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.katex--error {
+  color: #777;
+}
+
+/* Code Blocks
+   ---------------- */
+
+code {
+  background: #f3f3f3;
+  border-radius: 2px;
+  color: #444;
+  font-family: 'Fira Mono', monospace;
+  font-size: .85em;
+  margin: 0 .2em;
+  padding: .1em .5em;
+}
+
+.content > pre {
+  background: #f3f3f3;
+  font-family: 'Fira Mono', monospace;
+  margin-bottom:  1.9rem;
+  padding: calc(.5 *  1.9rem) 1.2rem;
+  tab-size: 4;
+  overflow-x: auto;
+}
+
+.content > pre code {
+  background: none;
+  border: none;
+  color: #444;
+  margin: 0;
+  padding: 0;
+}
+
+/* Code
+   ---------------- */
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #aaa;
+}
+
+.token.operator,
+.token.punctuation {
+  color: #888;
+}
+
+.token.selector,
+.token.attr-name,
+.token.entity,
+.token.url {
+  color: #987;
+}
+
+.token.tag,
+.token.constant,
+.token.keyword {
+  color: #a7a;
+}
+
+.token.function,
+.token.attr-value {
+  color: #68a;
+}
+
+.token.number,
+.token.boolean,
+.token.regex,
+.token.string {
+  color: #6a8;
+}
+
+.token.variable,
+.token.property,
+.token.key {
+  color: #a66;
+}
+
+/* Print
+   ---------------- */
+
+@media print {
+  :root {
+    font-size: 14px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<h1 id="pg-eti-or">PG - ETI - OR</h1>
+<h2 id="konorski-lectures-part-2">Konorski Lectures - part 2</h2>
+<p><img src="2018-06-17-cheat-notes-81.png" alt="">
+<img src="2018-06-17-cheat-notes-82.png" alt="">
+<img src="2018-06-17-cheat-notes-163.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-83.png" alt="">
+<img src="2018-06-17-cheat-notes-164.png" alt="">
+<img src="2018-06-17-cheat-notes-84.png" alt="">
+<img src="2018-06-17-cheat-notes-165.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-85.png" alt="">
+<img src="2018-06-17-cheat-notes-166.png" alt="">
+<img src="2018-06-17-cheat-notes-86.png" alt="">
+<img src="2018-06-17-cheat-notes-167.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-87.png" alt="">
+<img src="2018-06-17-cheat-notes-168.png" alt="">
+<img src="2018-06-17-cheat-notes-88.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-169.png" alt="">
+<img src="2018-06-17-cheat-notes-89.png" alt="">
+<img src="2018-06-17-cheat-notes-170.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-90.png" alt="">
+<img src="2018-06-17-cheat-notes-171.png" alt="">
+<img src="2018-06-17-cheat-notes-91.png" alt="">
+<img src="2018-06-17-cheat-notes-431.png" alt="">
+<img src="2018-06-17-cheat-notes-172.png" alt="">
+<img src="2018-06-17-cheat-notes-92.png" alt="">
+<img src="2018-06-17-cheat-notes-432.png" alt="">
+<img src="2018-06-17-cheat-notes-173.png" alt="">
+<img src="2018-06-17-cheat-notes-93.png" alt="">
+<img src="2018-06-17-cheat-notes-433.png" alt="">
+<img src="2018-06-17-cheat-notes-174.png" alt="">
+<img src="2018-06-17-cheat-notes-94.png" alt="">
+<img src="2018-06-17-cheat-notes-434.png" alt="">
+<img src="2018-06-17-cheat-notes-175.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-95.png" alt="">
+<img src="2018-06-17-cheat-notes-435.png" alt="">
+<img src="2018-06-17-cheat-notes-177.png" alt="">
+<img src="2018-06-17-cheat-notes-96.png" alt="">
+<img src="2018-06-17-cheat-notes-436.png" alt="">
+<img src="2018-06-17-cheat-notes-178.png" alt="">
+<img src="2018-06-17-cheat-notes-97.png" alt="">
+<img src="2018-06-17-cheat-notes-437.png" alt="">
+<img src="2018-06-17-cheat-notes-179.png" alt="">
+<img src="2018-06-17-cheat-notes-98.png" alt="">
+<img src="2018-06-17-cheat-notes-438.png" alt="">
+<img src="2018-06-17-cheat-notes-180.png" alt="">
+<img src="2018-06-17-cheat-notes-99.png" alt="">
+<img src="2018-06-17-cheat-notes-439.png" alt="">
+<img src="2018-06-17-cheat-notes-181.png" alt="">
+<img src="2018-06-17-cheat-notes-100.png" alt="">
+<img src="2018-06-17-cheat-notes-440.png" alt="">
+<img src="2018-06-17-cheat-notes-182.png" alt="">
+<img src="2018-06-17-cheat-notes-101.png" alt="">
+<img src="2018-06-17-cheat-notes-441.png" alt="">
+<img src="2018-06-17-cheat-notes-184.png" alt="">
+<img src="2018-06-17-cheat-notes-102.png" alt="">
+<img src="2018-06-17-cheat-notes-185.png" alt="">
+<img src="2018-06-17-cheat-notes-103.png" alt="">
+<img src="2018-06-17-cheat-notes-442.png" alt="">
+<img src="2018-06-17-cheat-notes-186.png" alt="">
+<img src="2018-06-17-cheat-notes-104.png" alt="">
+<img src="2018-06-17-cheat-notes-443.png" alt="">
+<img src="2018-06-17-cheat-notes-187.png" alt="">
+<img src="2018-06-17-cheat-notes-105.png" alt="">
+<img src="2018-06-17-cheat-notes-444.png" alt="">
+<img src="2018-06-17-cheat-notes-188.png" alt="">
+<img src="2018-06-17-cheat-notes-106.png" alt="">
+<img src="2018-06-17-cheat-notes-445.png" alt="">
+<img src="2018-06-17-cheat-notes-189.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-107.png" alt="">
+<img src="2018-06-17-cheat-notes-446.png" alt="">
+<img src="2018-06-17-cheat-notes-190.png" alt=""></p>
+<p><img src="2018-06-17-cheat-notes-108.png" alt="">
+<img src="2018-06-17-cheat-notes-447.png" alt="">
+<img src="2018-06-17-cheat-notes-191.png" alt="">
+<img src="2018-06-17-cheat-notes-109.png" alt="">
+<img src="2018-06-17-cheat-notes-448.png" alt="">
+<img src="2018-06-17-cheat-notes-192.png" alt="">
+<img src="2018-06-17-cheat-notes-110.png" alt="">
+<img src="2018-06-17-cheat-notes-193.png" alt="">
+<img src="2018-06-17-cheat-notes-111.png" alt="">
+<img src="2018-06-17-cheat-notes-449.png" alt="">
+<img src="2018-06-17-cheat-notes-194.png" alt="">
+<img src="2018-06-17-cheat-notes-112.png" alt="">
+<img src="2018-06-17-cheat-notes-450.png" alt="">
+<img src="2018-06-17-cheat-notes-195.png" alt="">
+<img src="2018-06-17-cheat-notes-113.png" alt="">
+<img src="2018-06-17-cheat-notes-451.png" alt="">
+<img src="2018-06-17-cheat-notes-196.png" alt="">
+<img src="2018-06-17-cheat-notes-114.png" alt="">
+<img src="2018-06-17-cheat-notes-197.png" alt="">
+<img src="2018-06-17-cheat-notes-115.png" alt="">
+<img src="2018-06-17-cheat-notes-452.png" alt="">
+<img src="2018-06-17-cheat-notes-198.png" alt="">
+<img src="2018-06-17-cheat-notes-116.png" alt="">
+<img src="2018-06-17-cheat-notes-453.png" alt="">
+<img src="2018-06-17-cheat-notes-199.png" alt="">
+<img src="2018-06-17-cheat-notes-117.png" alt="">
+<img src="2018-06-17-cheat-notes-454.png" alt="">
+<img src="2018-06-17-cheat-notes-200.png" alt="">
+<img src="2018-06-17-cheat-notes-118.png" alt="">
+<img src="2018-06-17-cheat-notes-201.png" alt="">
+<img src="2018-06-17-cheat-notes-119.png" alt="">
+<img src="2018-06-17-cheat-notes-455.png" alt="">
+<img src="2018-06-17-cheat-notes-202.png" alt="">
+<img src="2018-06-17-cheat-notes-120.png" alt="">
+<img src="2018-06-17-cheat-notes-456.png" alt="">
+<img src="2018-06-17-cheat-notes-203.png" alt="">
+<img src="2018-06-17-cheat-notes-121.png" alt="">
+<img src="2018-06-17-cheat-notes-457.png" alt="">
+<img src="2018-06-17-cheat-notes-204.png" alt="">
+<img src="2018-06-17-cheat-notes-122.png" alt="">
+<img src="2018-06-17-cheat-notes-458.png" alt="">
+<img src="2018-06-17-cheat-notes-205.png" alt="">
+<img src="2018-06-17-cheat-notes-123.png" alt=""></p>
+
+</body>
+</html>
